@@ -1,5 +1,5 @@
-package Task1_Task2_OOP;
-
+package NhaSach_NhaNam;
+// Task 1
 public class DoChoiTreEm extends SanPham{
     // Private properties of DoChoiTreEm
     private String dcXuatXu;
@@ -8,7 +8,7 @@ public class DoChoiTreEm extends SanPham{
     private String dcHuongDanSuDung;
 
     // Create Parameterized Constructor
-    public DoChoiTreEm(String maSanPham, String tenSanPham, String soLuong, String donGia,
+    public DoChoiTreEm(String maSanPham, String tenSanPham, int soLuong, double donGia,
                        String thuocDanhMuc, String dcXuatXu, String dcThuongHieu,
                        String dcNhaCungCap, String dcHuongDanSuDung) {
         super(maSanPham, tenSanPham, soLuong, donGia, thuocDanhMuc);
@@ -44,6 +44,15 @@ public class DoChoiTreEm extends SanPham{
     }
     @Override
     public void PhanTramGiamGia() {
+    }
 
+    @Override
+    public String toString() {
+        return "Thông tin đồ chơi trẻ em:"
+                + "\nMã sản phẩm: " + getMaSanPham() + "\nTên sản phẩm: "+ getTenSanPham()
+                + "\nSố lượng: " + getSoLuong() + "\nĐơn giá: "+ getDonGia()
+                + "\nThuộc danh mục: " + getThuocDanhMuc()+ "\nXuất sứ: " + getDcXuatXu()
+                + "\nThương hiệu: " + getDcThuongHieu() + "\nNhà cung cấp: " + getDcNhaCungCap()
+                + "\nHướng dẫn sử dụng: " + getDcHuongDanSuDung();
     }
 }

@@ -1,5 +1,5 @@
-package Task1_Task2_OOP;
-
+package NhaSach_NhaNam;
+// Task 1
 public class DoDungHocTap extends SanPham{
     // Private properties of DoDungHocTap
     private String XuatXu;
@@ -11,8 +11,8 @@ public class DoDungHocTap extends SanPham{
     private String KichThuoc;
 
     // Create Parameterized Constructor
-    public DoDungHocTap(String maSanPham, String tenSanPham, String soLuong,
-                        String donGia, String thuocDanhMuc, String xuatXu,
+    public DoDungHocTap(String maSanPham, String tenSanPham, int soLuong,
+                        double donGia, String thuocDanhMuc, String xuatXu,
                         String thuongHieu, String nhaCungCap, String huongDanSuDung,
                         String mauSac, String chatLieu, String kichThuoc) {
         super(maSanPham, tenSanPham, soLuong, donGia, thuocDanhMuc);
@@ -64,6 +64,16 @@ public class DoDungHocTap extends SanPham{
     }
     @Override
     public void PhanTramGiamGia() {
+    }
 
+    @Override
+    public String toString() {
+        return "Thông tin đồ dùng học tập: "
+                + "\nMã sản phẩm: " + getMaSanPham() + "\nTên sản phẩm: "+ getTenSanPham()
+                + "\nSố lượng: " + getSoLuong() + "\nĐơn giá: "+ getDonGia()
+                + "\nThuộc danh mục: " + getThuocDanhMuc()+ "\nXuất sứ: " + getXuatXu()
+                + "\nThương hiệu: " + getThuongHieu() + "\nNhà cung cấp: " + getNhaCungCap()
+                + "\nHướng dẫn sử dụng: " + getHuongDanSuDung() + "\nMàu sắc: " + getMauSac()
+                + "\nChất liệu: " + getChatLieu() + "\nKích thước: " + getKichThuoc();
     }
 }
