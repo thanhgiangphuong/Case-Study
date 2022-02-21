@@ -3,15 +3,15 @@ package NhaSach_NhaNam;
 public class Sach extends SanPham{
     // Private properties of Sach
     private String NhaXuatBan;
-    private String NamXuatBan;
+    private int NamXuatBan;
     private String TacGia;
     private String NgayXuatBan;
-    private String LanTaiBan;
+    private int LanTaiBan;
 
     // Create Parameterized Constructor
     public Sach(String maSanPham, String tenSanPham, int soLuong, double donGia,
-                String thuocDanhMuc, String nhaXuatBan, String namXuatBan, String tacGia,
-                String ngayXuatBan, String lanTaiBan) {
+                String thuocDanhMuc, String nhaXuatBan, int namXuatBan, String tacGia,
+                String ngayXuatBan, int lanTaiBan) {
         super(maSanPham, tenSanPham, soLuong, donGia, thuocDanhMuc);
         NhaXuatBan = nhaXuatBan;
         NamXuatBan = namXuatBan;
@@ -19,12 +19,12 @@ public class Sach extends SanPham{
         NgayXuatBan = ngayXuatBan;
         LanTaiBan = lanTaiBan;
     }
-    // Create getter
+    // Create getters
     public String getNhaXuatBan() {
         return NhaXuatBan;
     }
 
-    public String getNamXuatBan() {
+    public int getNamXuatBan() {
         return NamXuatBan;
     }
 
@@ -36,9 +36,19 @@ public class Sach extends SanPham{
         return NgayXuatBan;
     }
 
-    public String getLanTaiBan() {
+    public int getLanTaiBan() {
         return LanTaiBan;
     }
+    // Create setters
+
+    public void setNamXuatBan(int namXuatBan) {
+            NamXuatBan = namXuatBan;
+        }
+
+    public void setLanTaiBan(int lanTaiBan) {
+        LanTaiBan = lanTaiBan;
+    }
+
     // Override methods
     @Override
     public void HienThiThongTin() {

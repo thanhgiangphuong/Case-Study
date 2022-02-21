@@ -1,6 +1,8 @@
 package NhaSach_NhaNam;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -85,22 +87,6 @@ public class MainmenuControll {
         }
         // Use lambda (abbreviation)
         // return this.sanPhams.stream().filter(san -> san.getMaSanPham().contains(MaSP)).collect(Collectors.toList());
-    }
-
-    // Create a file creation method
-    public static void FileCreating (String fileName) {
-        // Create file
-        try {
-            File CS_file = new File(fileName);
-            if(CS_file.createNewFile()){
-                System.out.println("File đã được tạo: " + CS_file.getName());
-            } else {
-                System.out.println("File đã tồn tại");
-            }
-        } catch (IOException e){
-            System.out.println("Đã xảy ra lỗi");
-            e.printStackTrace();
-        }
     }
 }
 
