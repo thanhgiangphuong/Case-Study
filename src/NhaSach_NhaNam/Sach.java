@@ -1,17 +1,20 @@
 package NhaSach_NhaNam;
+
+import java.util.Date;
+
 // Task 1
 public class Sach extends SanPham{
     // Private properties of Sach
     private String NhaXuatBan;
     private int NamXuatBan;
     private String TacGia;
-    private String NgayXuatBan;
+    private Date NgayXuatBan;
     private int LanTaiBan;
 
     // Create Parameterized Constructor
     public Sach(String maSanPham, String tenSanPham, int soLuong, double donGia,
                 String thuocDanhMuc, String nhaXuatBan, int namXuatBan, String tacGia,
-                String ngayXuatBan, int lanTaiBan) {
+                Date ngayXuatBan, int lanTaiBan) {
         super(maSanPham, tenSanPham, soLuong, donGia, thuocDanhMuc);
         NhaXuatBan = nhaXuatBan;
         NamXuatBan = namXuatBan;
@@ -32,7 +35,7 @@ public class Sach extends SanPham{
         return TacGia;
     }
 
-    public String getNgayXuatBan() {
+    public Date getNgayXuatBan() {
         return NgayXuatBan;
     }
 
