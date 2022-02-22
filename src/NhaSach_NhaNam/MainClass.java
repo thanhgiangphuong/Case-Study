@@ -38,37 +38,38 @@ public class MainClass {
                     switch (type) {
                         // Enter data for Sach
                         case "a": {
-                            System.out.println("Nhập mã sách: ");
-                            String maSach = scanner.nextLine();
-                            System.out.println("Nhập tên sách: ");
-                            String tenSach = scanner.nextLine();
-                            System.out.println("Nhập số lượng: ");
-                            int slSach = Integer.parseInt(scanner.nextLine());
-                            System.out.println("Nhập đơn giá: ");
-                            double giaSach = Double.parseDouble(scanner.nextLine());
-                            System.out.println("Thuộc danh mục: ");
-                            String danhMucsach = scanner.nextLine();
-                            System.out.println("Nhà xuất bản: ");
-                            String nXB = scanner.nextLine();
+//                            System.out.println("Nhập mã sách: ");
+//                            String maSach = scanner.nextLine();
+//                            System.out.println("Nhập tên sách: ");
+//                            String tenSach = scanner.nextLine();
+//                            System.out.println("Nhập số lượng: ");
+//                            int slSach = Integer.parseInt(scanner.nextLine());
+//                            System.out.println("Nhập đơn giá: ");
+//                            double giaSach = Double.parseDouble(scanner.nextLine());
+//                            System.out.println("Thuộc danh mục: ");
+//                            String danhMucsach = scanner.nextLine();
+//                            System.out.println("Nhà xuất bản: ");
+//                            String nXB = scanner.nextLine();
 
                             // Validate "Năm xuất bản"
-                            int namXB;
-                            do {
-                                System.out.println("Năm xuất bản (Vui lòng điền số nằm trong khoảng 1000 -> 2021): ");
-                                while (!scanner.hasNextInt()) {
-                                    System.out.println("Vui lòng nhập số");
-                                    scanner.next();
-                                }
-                                namXB = scanner.nextInt();
-                                scanner.nextLine();
-                            } while (namXB < 1000 || namXB > 2021);
+//                            int namXB;
+//                            do {
+//                                System.out.println("Năm xuất bản (Vui lòng điền số nằm trong khoảng 1000 -> 2021): ");
+//                                while (!scanner.hasNextInt()) {
+//                                    System.out.println("Vui lòng nhập số");
+//                                    scanner.next();
+//                                }
+//                                namXB = scanner.nextInt();
+//                                scanner.nextLine();
+//                            } while (namXB < 1000 || namXB > 2021);
 
                             // Enter tác giả
-                            System.out.println("Tác giả: ");
-                            String tacGia = scanner.nextLine();
+//                            System.out.println("Tác giả: ");
+//                            String tacGia = scanner.nextLine();
 
                             //  Validate for Ngày Xuất Bản
                             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                            System.out.println(sdf);
                             sdf.setLenient(false);
                             Date ngayXB = null;
                             boolean valid;
@@ -94,14 +95,18 @@ public class MainClass {
                                 lanTaiBan = scanner.nextInt();
                             } while (lanTaiBan <= 0);
 
+                            System.out.println("========================");
+                            System.out.println(sdf.format(ngayXB));
+                            System.out.println("========================");
+
                             // Create object sach with SanPham type and add parameter for constractor
-                            SanPham sach = new Sach(maSach, tenSach, slSach, giaSach, danhMucsach,
-                                    nXB, namXB, tacGia, ngayXB, lanTaiBan);
-                            // Call method addSanpham to add data into list
-                            mainmenuControll.addSach(sach);
-                            // Call FileWriting method to write data into file
-                            File_Utils.FileWriting("Sach.csv", sach.toString());
-                            break;
+//                            SanPham sach = new Sach(maSach, tenSach, slSach, giaSach, danhMucsach,
+//                                    nXB, namXB, tacGia, ngayXB, lanTaiBan);
+//                            // Call method addSanpham to add data into list
+//                            mainmenuControll.addSach(sach);
+//                            // Call FileWriting method to write data into file
+//                            File_Utils.FileWriting("Sach.csv", sach.toString());
+//                            break;
                         }
                         // Enter data for Dodunghoctap
                         case "b": {
@@ -126,7 +131,11 @@ public class MainClass {
 
                             System.out.println("Màu sắc: ");
                             String mausacDodung = scanner.nextLine();
+
+                            boolean validColor;
                             do {
+                                validColor = true;
+
                                 switch (mausacDodung) {
                                     case "Xanh":
                                         System.out.println("Màu sắc: Xanh");
@@ -146,9 +155,10 @@ public class MainClass {
                                     default:
                                         System.out.println("Vui lòng nhập lại, chỉ được nhập trong phạm vi (Xanh, Đỏ, Vàng, Đen, Trắng)");
                                         mausacDodung = scanner.nextLine();
+                                        validColor = false;
+                                        break;
                                 }
-                            } while (false);
-
+                            } while (!validColor);
 
                             System.out.println("Chất liệu: ");
                             String chatlieuDodung = scanner.nextLine();
