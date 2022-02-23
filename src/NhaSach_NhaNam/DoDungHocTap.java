@@ -8,13 +8,13 @@ public class DoDungHocTap extends SanPham{
     private String HuongDanSuDung;
     private String MauSac;
     private String ChatLieu;
-    private String KichThuoc;
+    private Double KichThuoc;
 
     // Create Parameterized Constructor
     public DoDungHocTap(String maSanPham, String tenSanPham, int soLuong,
                         double donGia, String thuocDanhMuc, String xuatXu,
                         String thuongHieu, String nhaCungCap, String huongDanSuDung,
-                        String mauSac, String chatLieu, String kichThuoc) {
+                        String mauSac, String chatLieu, Double kichThuoc) {
         super(maSanPham, tenSanPham, soLuong, donGia, thuocDanhMuc);
         XuatXu = xuatXu;
         ThuongHieu = thuongHieu;
@@ -49,7 +49,7 @@ public class DoDungHocTap extends SanPham{
         return ChatLieu;
     }
 
-    public String getKichThuoc() {
+    public Double getKichThuoc() {
         return KichThuoc;
     }
     // Override methods

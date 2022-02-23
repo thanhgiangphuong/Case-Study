@@ -38,35 +38,54 @@ public class MainClass {
                     switch (type) {
                         // Enter data for Sach
                         case "a": {
-//                            System.out.println("Nhập mã sách: ");
-//                            String maSach = scanner.nextLine();
-//                            System.out.println("Nhập tên sách: ");
-//                            String tenSach = scanner.nextLine();
-//                            System.out.println("Nhập số lượng: ");
-//                            int slSach = Integer.parseInt(scanner.nextLine());
-//                            System.out.println("Nhập đơn giá: ");
-//                            double giaSach = Double.parseDouble(scanner.nextLine());
-//                            System.out.println("Thuộc danh mục: ");
-//                            String danhMucsach = scanner.nextLine();
-//                            System.out.println("Nhà xuất bản: ");
-//                            String nXB = scanner.nextLine();
-
-                            // Validate "Năm xuất bản"
-//                            int namXB;
-//                            do {
-//                                System.out.println("Năm xuất bản (Vui lòng điền số nằm trong khoảng 1000 -> 2021): ");
-//                                while (!scanner.hasNextInt()) {
-//                                    System.out.println("Vui lòng nhập số");
-//                                    scanner.next();
-//                                }
-//                                namXB = scanner.nextInt();
-//                                scanner.nextLine();
-//                            } while (namXB < 1000 || namXB > 2021);
-
-                            // Enter tác giả
-//                            System.out.println("Tác giả: ");
-//                            String tacGia = scanner.nextLine();
-
+                            // Enter "Mã sách"
+                            System.out.println("Nhập mã sách: ");
+                            String maSach = scanner.nextLine();
+                            // Enter tên sách
+                            System.out.println("Nhập tên sách: ");
+                            String tenSach = scanner.nextLine();
+                            // Validate "Số lượng sách"
+                            int slSach;
+                            do {
+                                System.out.println("Số lượng sách (Vui lòng điền số nguyên dương): ");
+                                while (!scanner.hasNextInt()) {
+                                    System.out.println("Vui lòng nhập số nguyên dương");
+                                    scanner.next();
+                                }
+                                slSach = scanner.nextInt();
+                                scanner.nextLine();
+                            } while (slSach <= 0);
+                            // Validate "Đơn giá sách"
+                            double giaSach;
+                            do {
+                                System.out.println("Đơn giá sách (Vui lòng điền số thực và lớn hơn 0): ");
+                                while (!scanner.hasNextDouble()) {
+                                    System.out.println("Vui lòng nhập số thực");
+                                    scanner.next();
+                                }
+                                giaSach = scanner.nextDouble();
+                                scanner.nextLine();
+                            } while (giaSach <= 0);
+                            // Enter "Thuộc danh mục"
+                            System.out.println("Thuộc danh mục: ");
+                            String danhMucsach = scanner.nextLine();
+                            // Enter "Nhà xuất bản"
+                            System.out.println("Nhà xuất bản: ");
+                            String nXB = scanner.nextLine();
+                            //  Validate "Năm xuất bản"
+                            int namXB;
+                            do {
+                                System.out.println("Năm xuất bản (Vui lòng điền số nằm trong khoảng 1000 -> 2021): ");
+                                while (!scanner.hasNextInt()) {
+                                    System.out.println("Vui lòng nhập số");
+                                    scanner.next();
+                                }
+                                namXB = scanner.nextInt();
+                                scanner.nextLine();
+                            } while (namXB < 1000 || namXB > 2021);
+                            //    Enter tác giả
+                            System.out.println("Tác giả: ");
+                            String tacGia = scanner.nextLine();
                             //  Validate for Ngày Xuất Bản
                             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                             System.out.println(sdf);
@@ -83,7 +102,6 @@ public class MainClass {
                                     valid = false;
                                 }
                             } while (!valid);
-
                             // Validate Lần tái bản
                             int lanTaiBan;
                             do {
@@ -95,43 +113,63 @@ public class MainClass {
                                 lanTaiBan = scanner.nextInt();
                             } while (lanTaiBan <= 0);
 
-                            System.out.println("========================");
-                            System.out.println(sdf.format(ngayXB));
-                            System.out.println("========================");
-
-                            // Create object sach with SanPham type and add parameter for constractor
-//                            SanPham sach = new Sach(maSach, tenSach, slSach, giaSach, danhMucsach,
-//                                    nXB, namXB, tacGia, ngayXB, lanTaiBan);
-//                            // Call method addSanpham to add data into list
-//                            mainmenuControll.addSach(sach);
-//                            // Call FileWriting method to write data into file
-//                            File_Utils.FileWriting("Sach.csv", sach.toString());
-//                            break;
+                           //  Create object sach with SanPham type and add parameter for constractor
+                            SanPham sach = new Sach(maSach, tenSach, slSach, giaSach, danhMucsach,
+                                    nXB, namXB, tacGia, ngayXB, lanTaiBan);
+                            // Call method addSanpham to add data into list
+                            mainmenuControll.addSach(sach);
+                            // Call FileWriting method to write data into file
+                            File_Utils.FileWriting("Sach.csv", sach.toString());
+                            break;
                         }
                         // Enter data for Dodunghoctap
                         case "b": {
+                            // Enter "Mã đồ dùng"
                             System.out.println("Nhập mã đồ dùng: ");
                             String maDodung = scanner.nextLine();
+                            // Enter tên đồ dùng
                             System.out.println("Nhập tên đồ dùng: ");
                             String tenDodung = scanner.nextLine();
-                            System.out.println("Nhập số lượng: ");
-                            int slDodung = Integer.parseInt(scanner.nextLine());
-                            System.out.println("Nhập đơn giá: ");
-                            double giaDodung = Double.parseDouble(scanner.nextLine());
+                            // Validate "Số lượng đồ dùng"
+                            int slDodung;
+                            do {
+                                System.out.println("Số lượng đồ dùng (Vui lòng điền số nguyên dương): ");
+                                while (!scanner.hasNextInt()) {
+                                    System.out.println("Vui lòng nhập số nguyên dương");
+                                    scanner.next();
+                                }
+                                slDodung = scanner.nextInt();
+                                scanner.nextLine();
+                            } while (slDodung <= 0);
+                            // Validate "Đơn giá đồ dùng"
+                            double giaDodung;
+                            do {
+                                System.out.println("Đơn giá đồ dùng (Vui lòng điền số thực và lớn hơn 0): ");
+                                while (!scanner.hasNextDouble()) {
+                                    System.out.println("Vui lòng nhập số thực");
+                                    scanner.next();
+                                }
+                                giaDodung = scanner.nextDouble();
+                                scanner.nextLine();
+                            } while (giaDodung <= 0);
+                            // Enter "Thuộc danh mục"
                             System.out.println("Thuộc danh mục: ");
                             String danhMucdoDung = scanner.nextLine();
+                            // Enter "Xuất xứ"
                             System.out.println("Xuất xứ: ");
                             String xxDodung = scanner.nextLine();
+                            // Enter "Thương hiệu"
                             System.out.println("Thương hiệu: ");
                             String thuonghieuDodung = scanner.nextLine();
+                            // Enter "Nhà cung cấp"
                             System.out.println("Nhà cung cấp: ");
                             String nccDodung = scanner.nextLine();
+                            // Enter "Hướng dẫn sử dụng"
                             System.out.println("Hướng dẫn sử dụng: ");
                             String hdsdDodung = scanner.nextLine();
-
+                            // Validate "Màu sắc"
                             System.out.println("Màu sắc: ");
                             String mausacDodung = scanner.nextLine();
-
                             boolean validColor;
                             do {
                                 validColor = true;
@@ -159,11 +197,20 @@ public class MainClass {
                                         break;
                                 }
                             } while (!validColor);
-
+                            // Enter "Chất liệu"
                             System.out.println("Chất liệu: ");
                             String chatlieuDodung = scanner.nextLine();
-                            System.out.println("Kích thước: ");
-                            String kichthuocDodung = scanner.nextLine();
+                            // Validate "Kích thước"
+                            Double kichthuocDodung;
+                            do {
+                                System.out.println("Kích thước đồ dùng (Vui lòng điền số thực và lớn hơn 0): ");
+                                while (!scanner.hasNextDouble()) {
+                                    System.out.println("Vui lòng nhập số thực");
+                                    scanner.next();
+                                }
+                                kichthuocDodung = scanner.nextDouble();
+                            } while (kichthuocDodung <= 0);
+
                             // Create object dodunghoctap with SanPham type and add parameter for constractor
                             SanPham dodunghoctap = new DoDungHocTap(maDodung, tenDodung, slDodung,
                                     giaDodung, danhMucdoDung, xxDodung, thuonghieuDodung, nccDodung,
@@ -176,14 +223,35 @@ public class MainClass {
                         }
                         // Enter data for Dochoitreem
                         case "c": {
+                            // Enter "Mã đồ chơi"
                             System.out.println("Nhập mã đồ chơi: ");
                             String maDochoi = scanner.nextLine();
+                            // Enter "Tên đồ chơi"
                             System.out.println("Nhập tên đồ chơi: ");
                             String tenDochoi = scanner.nextLine();
-                            System.out.println("Nhập số lượng: ");
-                            int slDochoi = Integer.parseInt(scanner.nextLine());
-                            System.out.println("Nhập đơn giá: ");
-                            double giaDochoi = Double.parseDouble(scanner.nextLine());
+                            // Validate "Số lượng đồ chơi"
+                            int slDochoi;
+                            do {
+                                System.out.println("Số lượng đồ chơi (Vui lòng điền số nguyên dương): ");
+                                while (!scanner.hasNextInt()) {
+                                    System.out.println("Vui lòng nhập số nguyên dương");
+                                    scanner.next();
+                                }
+                                slDochoi = scanner.nextInt();
+                                scanner.nextLine();
+                            } while (slDochoi <= 0);
+                            // Validate "Đơn giá đồ chơi"
+                            double giaDochoi;
+                            do {
+                                System.out.println("Đơn giá đồ chơi (Vui lòng điền số thực và lớn hơn 0): ");
+                                while (!scanner.hasNextDouble()) {
+                                    System.out.println("Vui lòng nhập số thực");
+                                    scanner.next();
+                                }
+                                giaDochoi = scanner.nextDouble();
+                                scanner.nextLine();
+                            } while (giaDochoi <= 0);
+                            // Enter others properties
                             System.out.println("Thuộc danh mục: ");
                             String danhMucdochoi = scanner.nextLine();
                             System.out.println("Xuất xứ: ");
@@ -235,7 +303,8 @@ public class MainClass {
                             break;
                     }
                     // Return to main menu
-                    continue;
+                    //continue;
+                    break;
                 }
                 // Search product
                 case "3": {
