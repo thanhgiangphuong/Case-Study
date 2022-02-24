@@ -308,11 +308,11 @@ public class MainClass {
                 }
                 // Search product
                 case "3": {
-                    System.out.println("Nhập Mã sản phẩm để tìm kiếm: ");
-                    String maSP = scanner.nextLine();
-                    mainmenuControll.searchSanPhambyMaSanPham(maSP).forEach(sanPham -> {
-                        System.out.println(sanPham.toString());
-                    });
+//                    System.out.println("Nhập Mã sản phẩm để tìm kiếm: ");
+//                    String maSP = scanner.nextLine();
+//                    mainmenuControll.searchSanPhambyMaSanPham(maSP).forEach(sanPham -> {
+//                        System.out.println(sanPham.toString());
+//                    });
                     break;
                 }
                 case "4": {

@@ -19,49 +19,43 @@ public class MainmenuControll {
         this.Dodungs = new ArrayList<>();
         this.Dochois = new ArrayList<>();
     }
+
     // Create addSanPham method
-//    public void addSanPham(SanPham sanPham) {
-//        this.Sachs.add(sanPham);
-//        this.Dodungs.add(sanPham);
-//        this.Dochois.add(sanPham);
-//    }
-    public void addSach (SanPham sachh){
+    public void addSach(SanPham sachh) {
         this.Sachs.add(sachh);
     }
-    public void addDodung (SanPham dodungg){
+
+    public void addDodung(SanPham dodungg) {
         this.Dodungs.add(dodungg);
     }
-    public void addDochoi (SanPham dochoii){
+
+    public void addDochoi(SanPham dochoii) {
         this.Dochois.add(dochoii);
     }
+
     // Create showListInfor_SanPham method
-    //public void showListInfor_SanPham() {
-        // Use lambda (abbreviation)
-//        this.sanPhams.forEach(sp -> System.out.println(sp.toString()));
-//        this.sanPhams.forEach(n -> System.out.println(n));
-        // Use Iterator
-//        Iterator<SanPham> showList1 = this.sanPhams.iterator();
-//        while (showList1.hasNext()) {
-//            System.out.println(showList1.next());
-//        }
-        // Use forEach
     public void showListsach() {
-        for (SanPham showList1 : this.Sachs) {
-            System.out.println(showList1);
-        }
-    }
-    public void showListdodung() {
-        for (SanPham showList2 : this.Dodungs) {
-            System.out.println(showList2);
-        }
-    }
-    public void showListdochoi(){
-        for (SanPham showList3 : this.Dochois) {
-            System.out.println(showList3);
+        List a1 = File_Utils.FileReading("Sach.csv");
+        for (Object showList1 : a1) {
+            System.out.println(showList1.toString());
         }
     }
 
-    // Return a list when search SanPham by MaSanPham
+    public void showListdodung() {
+        List a2 = File_Utils.FileReading("Dodunghoctap.csv");
+        for (Object showList1 : a2) {
+            System.out.println(showList1.toString());
+        }
+    }
+
+    public void showListdochoi() {
+        List a3 = File_Utils.FileReading("Dochoitreem.csv");
+        for (Object showList1 : a3) {
+            System.out.println(showList1.toString());
+        }
+    }
+
+    //    // Return a list when search SanPham by MaSanPham
     public List<SanPham> searchSanPhambyMaSanPham(String MaSP) {
         List sanphambyMaSP = new ArrayList<>();
         for (SanPham sanPham : this.Sachs) {
@@ -79,7 +73,7 @@ public class MainmenuControll {
                 sanphambyMaSP.add(sanPham2);
             }
         }
-        if (sanphambyMaSP.isEmpty()){
+        if (sanphambyMaSP.isEmpty()) {
             System.out.println("Sản phẩm này không tồn tại");
             return new ArrayList<>();
         } else {
@@ -89,4 +83,5 @@ public class MainmenuControll {
         // return this.sanPhams.stream().filter(san -> san.getMaSanPham().contains(MaSP)).collect(Collectors.toList());
     }
 }
+
 
