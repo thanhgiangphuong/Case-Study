@@ -55,7 +55,7 @@ public class MainmenuControll {
         }
     }
 
-    //    // Return a list when search SanPham by MaSanPham
+    // Return a list when search SanPham by MaSanPham
     public List<SanPham> searchSanPhambyMaSanPham(String MaSP) {
         List sanphambyMaSP = new ArrayList<>();
         for (SanPham sanPham : this.Sachs) {
